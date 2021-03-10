@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La Curieuse!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>This is all new! this is {{ collection }}</h1>
+    <h2>La Curieuse</h2> 
+
+<section class="articles">
+    {% for article in articles %}
+    
+        <article>
+            <h2>{{ article.designation}}</h2>
+            <div class="metadata">Out this Summer in the category {{ article.category.designation}}.</div>
+
+            <div class="content">
+                <div class="shadow-sm p-3 mb-5 bg-white">
+                    <img src="{{ article.image }}" width="300" class="btn btn-primary" alt="illustration">
+                </div>
+                <div class="shadow-sm p-3 mb-5 bg-white">
+                    {{ article.description }}
+                </div>
+                <div class="shadow-sm p-3 mb-5 bg-white">
+                    <a href="{{ path('curieuse_show', {'id': article.id}) }}" class="btn btn-primary"><img src="{{ article.image }}" width="75" alt="imageProduit"></a>
+                </div>
+            </div>
+            
+        </article>
+    {% endfor %}
+
+    </section>
+</div>
+{% endblock %}

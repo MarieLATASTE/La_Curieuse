@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+        <article>
+        <h2>{{ article.designation }}</h2>
+        <div class="metadata"><h4>Out this Summer in the category {{ article.category.designation}}...</h4></div>
+                <div class="shadow-sm p-3 mb-5 bg-white">
+                        <button type="button" class="btn btn-primary btn-lg btn-block">
+                                <img src="{{ article.image }}" width=350 alt="imageProduit">
+                                <h4 class="card-title">{{ article.designation }}</h4>
+                                <p class="card-text">{{ article.description }}.</p>
+                        </button>
+                </div>
+        </article>
+
+{% endblock %}
