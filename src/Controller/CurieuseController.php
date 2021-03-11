@@ -33,13 +33,13 @@ class CurieuseController extends AbstractController
         $category = $repo->findAll();
 
         return $this->render('curieuse/home.html.twig', [
-           'title' => 'Oh! Des petit(e)s Curieux!',
-           'subtitle' => 'Soyez les bienvenu(e)s dans mon antre',
+           'title' => 'Hello! Hello my Fiends!',
+           'subtitle' => 'You are welcome to my place',
            'category' => $category
         ]);
     }
     /**
-     * @Route("curieuse/new", name="curieuse_create")
+     * @Route("/curieuse/new", name="curieuse_create")
      */
     public function create(){
         return $this->render('curieuse/create.html.twig');
