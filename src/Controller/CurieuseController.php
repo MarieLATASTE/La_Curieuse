@@ -6,6 +6,7 @@ use App\Entity\Article;
 use App\Entity\Category;
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
+use Doctrine\ORM\Mapping\Id;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -39,10 +40,15 @@ class CurieuseController extends AbstractController
         ]);
     }
     /**
-     * @Route("/curieuse/new", name="curieuse_create")
+     * @Route("/curieuse/deco/{id}", name="curieuse_deco")
      */
-    public function create(){
-        return $this->render('curieuse/create.html.twig');
+    public function deco(Category $category, $id): Response
+    {
+     
+
+        return $this->render('curieuse/curieuse_deco.html.twig', [
+            'category' => 'hi'
+        ]);
     }
     /**
      * @Route("/curieuse/{id}", name="curieuse_show")
