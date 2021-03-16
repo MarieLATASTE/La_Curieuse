@@ -30,7 +30,6 @@ class CurieuseController extends AbstractController
      */
     public function accueil(CategoryRepository $repo): Response
     {
-
         $category = $repo->findAll();
 
         return $this->render('curieuse/home.html.twig', [
@@ -39,17 +38,7 @@ class CurieuseController extends AbstractController
            'category' => $category
         ]);
     }
-    /**
-     * @Route("/curieuse/deco/{id}", name="curieuse_deco")
-     */
-    public function deco(Category $category, $id): Response
-    {
-     
-
-        return $this->render('curieuse/curieuse_deco.html.twig', [
-            'category' => 'hi'
-        ]);
-    }
+  
     /**
      * @Route("/curieuse/{id}", name="curieuse_show")
      */
