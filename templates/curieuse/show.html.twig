@@ -7,10 +7,11 @@
         <div class="metadata"><h4>Out this Summer in the category {{ article.category.designation}}...</h4></div>
                 <div class="shadow-sm p-3 mb-5 bg-white">
                         <button type="button" class="btn btn-primary btn-lg btn-block">
-                                <img src="{{ article.image }}" width=350 alt="imageProduit">
+                                <img class="img-fluid rounded" src="{{ article.image }}" width=300 alt="imageProduit">
                                 <h4 class="card-title">{{ article.designation }}</h4>
                                 <h1 class="card-title">{{ article.price }}€</h1>
-                                 <p class="card-text">{{ article.description }}.</p>
+                                <p class="card-text">{{ article.description }}.</p>
+                                <a href="{{ path('cart_add', {'id':article, id}) }}" class="btn btn-dark float-right"><i class="fas fa-shopping-cart mr-1"></i>add</a>
                         </button>
                 </div>
         </article>
