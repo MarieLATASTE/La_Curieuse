@@ -13,12 +13,11 @@ class CategoryController extends AbstractController
     /**
      * @Route("/category/{id}", name="category_show")
      */
-    public function show(Category $category): Response
+    public function show($id, Category $category): Response
     {
-
         return $this->render('category/show.html.twig', [
             'category' => $category,
-           
+            'demo' => $id
         ]);
     }
 }

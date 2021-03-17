@@ -16,11 +16,11 @@ class CurieuseController extends AbstractController
     /**
      * @Route("/curieuse", name="curieuse")
      */
-    public function liste(ArticleRepository $repo): Response
+    public function articles(ArticleRepository $repo): Response
     {
         $articles = $repo->findAll();
  
-        return $this->render('curieuse/liste.html.twig', [
+        return $this->render('curieuse/articles.html.twig', [
             'collection' => 'Curiosi...quoi?',
             'articles' => $articles
         ]);

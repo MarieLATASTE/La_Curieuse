@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cash Desk!
+{% endblock %}
+
+{% block body %}
+	<div class="bg-light p-3">
+		<h1>Your Cart</h1>
+	</div>
+	{% if item | length > 0 %}
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Article</th>
+					<th>Price</th>
+					<th>Quantity</th>
+					<th>Total</th>
+					<th></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				{% for item in item %}
+					<tr>
+						<td>{{ item.article.designation }}</td>
+						<td>{{ item.article.price }}</td>
+						<td>{{ item.quantity }}</td>
+						<td>{{ item.article.price * item.quantity }}</td>
+						<td>
+							<a href="{{ path('cart_remove', {'id': item.article.id}) }}" class="btn btn-danger btn-sm">
+								<i class="fas fa-trash"></i>
+							</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="3" class="text-right">Total :
+					</td>
+					<td>{{ total }}</td>
+					<td></td>
+				</tr>
+			</tfoot>
+		</table>
+
+	{% else %}
+
+		<p>Surprise! It is empty!</p>
+
+	{% endif %}
+
+
+{% endblock %}
