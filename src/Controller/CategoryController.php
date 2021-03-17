@@ -13,11 +13,19 @@ class CategoryController extends AbstractController
     /**
      * @Route("/category/{id}", name="category_show")
      */
-    public function show($id, Category $category): Response
+
+    public function show(int $id, CategoryRepository $repository): Response
     {
+        $repository = $this->getDoctrine()->getRepository(Category::class);
+
+        // look for a single Product by its primary key (usually "id")
+        $category = $repository->find($id);
+
+        $articles = $category->getArticles();
+
         return $this->render('category/show.html.twig', [
             'category' => $category,
-            'demo' => $id
+            'articles' => $articles,
         ]);
     }
 }

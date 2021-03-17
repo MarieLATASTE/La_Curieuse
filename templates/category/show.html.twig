@@ -1,21 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategoryController!{% endblock %}
+{% block title %}Hello CategoryController!
+{% endblock %}
 
 {% block body %}
 
 
-        <article>
-        <h2>{{ category.designation }}</h2>
-        <div class="metadata"><h4>Out this Summer in the category {{ category.designation}}...</h4></div>
-                <div class="shadow-sm p-3 mb-5 bg-white">
-                        <button type="button" class="btn btn-primary btn-lg btn-block">
-                                <img src="{{ category.image }}" width=300 alt="illustration">
-                                <p class="card-text">{{ category.description }}.</p>
-                        </button>
-                              
-                </div>
-        </article>
+	{% for article in articles %}
+
+		<article>
+			<h2>{{ article.designation}}</h2>
+			<div class="metadata">Out this Summer in the category
+				{{ article.category.designation}}.</div>
+
+			<div class="content">
+				<div class="shadow-sm p-3 mb-5 bg-white">
+					<img src="{{ article.image }}" width="300" class="btn btn-primary" alt="illustration">
+				</div>
+				<div class="shadow-sm p-3 mb-5 bg-white">
+					{{ article.description }}
+				</div>
+				<div class="shadow-sm p-3 mb-5 bg-white">
+					<a href="{{ path('curieuse_show', {'id': article.id}) }}" class="btn btn-primary"><img src="{{ article.image }}" width="75" alt="illustration"></a>
+				</div>
+			</div>
+
+		</article>
+	{% endfor %}
 
 
 {% endblock %}
