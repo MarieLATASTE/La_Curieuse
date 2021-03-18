@@ -51,6 +51,11 @@ class User implements UserInterface
      */
     public $confirm_password;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Contact::class, inversedBy="message")
+     */
+    private $contact;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -110,5 +115,17 @@ class User implements UserInterface
     public function getRoles()
     {
         return ['ROLE_USER'];
+    }
+
+    public function getContact(): ?Contact
+    {
+        return $this->contact;
+    }
+
+    public function setContact(?Contact $contact): self
+    {
+        $this->contact = $contact;
+
+        return $this;
     }
 }

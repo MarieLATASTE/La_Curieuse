@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cash Desk!
-{% endblock %}
+{% block title %}Cash Desk!{% endblock %}
 
 {% block body %}
 	<div class="bg-light p-3">
@@ -14,6 +13,7 @@
         <table class="table table-hover">
             <thead>
                 <tr>
+                <th scope="col"></th>
                 <th scope="col">Article</th>
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
@@ -26,11 +26,11 @@
     {% for item in item %}
 
         <tr class="table-dark">
-            <th scope="row">Active</th>
+            <th scope="row"></th>
 				<td>{{ item.article.designation }}</td>
-				<td>{{ item.article.price }}</td>
+				<td>{{ item.article.price }} €</td>
 				<td>{{ item.quantity }}</td>
-                <td>{{ item.article.price * item.quantity }}</td>
+                <td>{{ item.article.price * item.quantity }} €</td>
                 <td>
 					<a href="{{ path('cart_remove', {'id': item.article.id}) }}" class="btn btn-danger btn-sm">
 					<i class="fas fa-trash"></i>
@@ -39,10 +39,10 @@
         </tr>
     {% endfor %}
 
-            <tfoot>
+            <tfoot class="table-dark">
 				<tr>
-					<td colspan="3" class="text-right">Total :</td>
-					<td>{{ total }}</td>
+					<td colspan="4" class="text-right">Total : </td>
+					<td>{{ total }} €</td>
 					<td></td>
 				</tr>
 			</tfoot>
@@ -54,4 +54,12 @@
 
 	{% endif %}
 
+    
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">Hallo meine lieben Ghule</div>
+            <div class="card-body">
+                <h4 class="card-title"><img src="https://cdn.pixabay.com/photo/2016/12/07/17/29/girl-1889940_960_720.png" class="d-block mx-auto" width=250 alt="illustration"></h4>
+                <p class="card-text">Danke viel von Ihrem Besuch.</p>
+            </div>
+    </div>
 {% endblock %}

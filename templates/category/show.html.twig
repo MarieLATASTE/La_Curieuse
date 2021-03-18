@@ -10,15 +10,15 @@
 
 		<article>
 			<h2>{{ article.designation}}</h2>
-			<div class="metadata">Out this Summer in the category
-				{{ article.category.designation}}.</div>
+			<div class="metadata"><h4>Out this Summer in the category
+				{{ article.category.designation}}.</h4></div>
 
 			<div class="content">
 				<div class="shadow-sm p-3 mb-5 bg-white">
-					<img src="{{ article.image }}" width="300" class="btn btn-primary" alt="illustration">
+					<img src="{{ article.image }}" width="300"  class="btn btn-primary"  class="d-block mx-auto" alt="illustration">
 				</div>
 				<div class="shadow-sm p-3 mb-5 bg-white">
-					{{ article.description }}
+					<h4>{{ article.description }}</h4>
 				</div>
 				<div class="shadow-sm p-3 mb-5 bg-white">
 					<a href="{{ path('curieuse_show', {'id': article.id}) }}" class="btn btn-primary"><img src="{{ article.image }}" width="75" alt="illustration"></a>
@@ -27,6 +27,8 @@
 
 		</article>
 	{% endfor %}
+
+  
 
 
 {% endblock %}
